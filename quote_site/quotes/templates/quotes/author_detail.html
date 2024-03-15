@@ -1,9 +1,16 @@
 {% extends "quotes/base.html" %}
 
-{% block title %}Home{% endblock %}
-
 {% block content %}
-    <div class="container mt-3">
-        <h1>{{author}}</h1>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ author.name }}</h5>
+            <p class="card-text">{{ quote.text }}</p>
+            <p class="card-text"><small class="text-muted">Author's Birth Date: {{ author.birth_date }}</small></p>
+            <p class="card-text"><small class="text-muted">Author's Bio: {{ author.bio }}</small></p>
+        </div>
     </div>
+</div>
+
 {% endblock %}
