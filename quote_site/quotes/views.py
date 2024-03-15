@@ -5,11 +5,11 @@ from .forms import AuthorForm, QuoteForm
 
 def home(request):
     quotes = Quote.objects.all()
-    return render(request, template_name='quotes/home.html', context={'quotes': quotes})
+    return render(request, 'quotes/home.html', {'quotes': quotes})
 
 def author_detail(request, pk):
     author = Author.objects.get(pk=pk)
-    return render(request, template_name='quotes/author_detail.html', context={'author': author})
+    return render(request, 'quotes/author_detail.html', {'author': author})
 
 
 @login_required
@@ -21,7 +21,7 @@ def add_author(request):
             return redirect('author_detail', pk=author.pk)
     else:
         form = AuthorForm()
-    return render(request, template_name='quotes/add_author.html', context={'form': form})
+    return render(request, 'quotes/add_author.html', {'form': form})
 
 @login_required
 def add_quote(request):
@@ -34,7 +34,7 @@ def add_quote(request):
             return redirect("home")
     else:
         form = QuoteForm()
-    return render(request, template_name='quotes/add_quote.html', context={form: form})
+    return render(request, 'quotes/add_quote.html', {form: form})
 
 
 
