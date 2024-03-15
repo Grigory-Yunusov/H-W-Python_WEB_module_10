@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# quote_site/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from quotes import views
@@ -22,5 +24,6 @@ from quotes import views
 urlpatterns = [
     path("", include("quotes.urls")),
     path('admin/', admin.site.urls),
+    path('users/', include('users.urls')),
     # path('accounts/', include('sjango.contrib.auth.urls')),
 ]

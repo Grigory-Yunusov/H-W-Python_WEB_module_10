@@ -18,7 +18,7 @@ def add_author(request):
         form = AuthorForm(request.POST)
         if form.is_valid():
             author = form.save()
-            return redirect('author_detail', pk=author.pk)
+            return redirect(to='quotes:add_quote')
     else:
         form = AuthorForm()
     return render(request, 'quotes/add_author.html', {'form': form})
@@ -34,7 +34,7 @@ def add_quote(request):
             return redirect("home")
     else:
         form = QuoteForm()
-    return render(request, 'quotes/add_quote.html', {form: form})
+    return render(request, 'quotes/add_quote.html', {'form': form})
 
 
 
