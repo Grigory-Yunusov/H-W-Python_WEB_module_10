@@ -9,7 +9,14 @@ class QuoteForm(ModelForm):
 
     class Meta:
         model = Quote
-        fields = ['tags', 'author', 'quote', ]
+        fields = ['author', 'quote', 'tags', ]
+
+class TagForm(ModelForm):
+    name = CharField(max_length=30, min_length=2, widget=TextInput(attrs={"class": "form-control"}))
+
+    class Meta:
+        model = Tag
+        fields = ['name', ]
 
 class AuthorForm(ModelForm):
     name = CharField(max_length=40, min_length=2, widget=TextInput(attrs={"class": "form-control"}))
@@ -19,5 +26,5 @@ class AuthorForm(ModelForm):
 
     class Meta:
         model = Author
-        fields = ['name', 'birth_date', 'bio', "born_location", ]
+        fields = ['name', 'birth_date',"born_location", 'bio',  ]
 

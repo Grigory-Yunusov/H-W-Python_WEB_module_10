@@ -1,3 +1,4 @@
+
 {% extends "quotes/base.html" %}
 
 {% block title %}Home{% endblock %}
@@ -5,8 +6,8 @@
 {% block content %}
     <div class="container mt-3">
         {% for quote in quotes %}
-            <h1>{{ quote.text }}</h1>
-            <p>By: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></p>
+            <h1>"{{ quote.quote }}"</h1>
+            <p>Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></p>
         {% endfor %}
     </div>
 {% endblock %}

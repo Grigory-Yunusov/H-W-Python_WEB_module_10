@@ -38,4 +38,4 @@ def loginuser(request):
 @login_required
 def logoutuser(request):
     logout(request)
-    return redirect(to='noteapp:main')
+    return redirect(to='quotes:home')

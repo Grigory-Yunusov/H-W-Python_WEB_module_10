@@ -15,6 +15,10 @@ class Author(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True)
 
+    def __str__(self):
+        return self.name
+    
+
 class Quote(models.Model):
     quote = models.TextField()
     tags = models.ManyToManyField(Tag)
