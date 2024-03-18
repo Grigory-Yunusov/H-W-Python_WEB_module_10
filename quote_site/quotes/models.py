@@ -6,11 +6,12 @@ class Author(models.Model):
     name = models.CharField(max_length=200)
     birth_date = models.DateField()
     born_location = models.CharField(max_length=1502, default='Default Location')
-    bio = models.TextField()
+    description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
+    
 
 class Tag(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True)

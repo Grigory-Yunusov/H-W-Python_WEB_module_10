@@ -22,9 +22,9 @@ class AuthorForm(ModelForm):
     name = CharField(max_length=40, min_length=2, widget=TextInput(attrs={"class": "form-control"}))
     birth_date = DateField(widget=DateInput(attrs={"class": "form-control"})) 
     born_location = CharField(max_length=150,widget=TextInput(attrs={"class": "form-control",}),)
-    bio = CharField(max_length=40, min_length=30, widget=TextInput(attrs={"class": "form-control"}))
+    description = CharField(max_length=40, min_length=30, widget=TextInput(attrs={"class": "form-control"}))
 
     class Meta:
         model = Author
-        fields = ['name', 'birth_date',"born_location", 'bio',  ]
+        fields = ['name', 'birth_date',"born_location", 'description',  ]
 

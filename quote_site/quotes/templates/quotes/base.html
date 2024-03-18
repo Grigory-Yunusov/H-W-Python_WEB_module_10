@@ -20,18 +20,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'quotes:home' %}">Home</a>
+              <a class="nav-link btn btn-outline-primary" aria-current="page" href="{% url 'quotes:home' %}">Home</a>
               {% if user.is_authenticated %}
-              <a class="nav-link" href="{% url 'quotes:add_quote' %}">Add Quote</a>
-              <a class="nav-link" href="{% url 'quotes:add_author' %}">Add Author</a>
-              <a class="nav-link" href="{% url 'quotes:add_tag' %}">Add Tag</a>
-              <form action="{% url 'users:logout' %}" method="post">
+              <a class="nav-link btn btn-success" href="{% url 'quotes:add_quote' %}">Add Quote</a>
+              <a class="nav-link btn btn-info" href="{% url 'quotes:add_author' %}">Add Author</a>
+              <a class="nav-link btn btn-warning" href="{% url 'quotes:add_tag' %}">Add Tag</a>
+              <form action="{% url 'users:logout' %}" method="post" class="d-inline">
                 {% csrf_token %}
-                <button class="btn btn-primary mt-3" type="submit">Logout</button>
-            </form>
+                <button class="btn btn-danger" type="submit">Logout</button>
+              </form>
               {% else %}
-              <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
-              <a class="nav-link" href="{% url 'users:signup' %}">Sing up</a>
+              <a class="nav-link btn btn-warning" href="{% url 'users:login' %}">Log in</a>
+              <a class="nav-link btn btn-warning" href="{% url 'users:signup' %}">Sign up</a>
               {% endif %}
             </div>
           </div>

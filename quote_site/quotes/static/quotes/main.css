@@ -1,1 +1,32 @@
 h1 {color: crimson;}
+
+.quote-text {
+    font-style: italic;
+    font-size: smaller;
+    font-weight: normal; /* Устанавливает нормальный вес шрифта, чтобы он не был жирным */
+}
+
+.btn-biruza {
+    background-color: #0080ff; /* Бирюзовый цвет */
+    border-color: #0080ff;
+    color: white; /* Текст кнопки будет белым */
+  }
+  
+.btn-biruza:hover {
+    background-color: #0056b3; /* Темно-бирюзовый цвет при наведении */
+    border-color: #0056b3;
+  }
+
+.tag_stile {
+    font-size: medium; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    font-style: italic; /* Курсив */
+}
+
+.author_stile {
+    font-size: medium; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    font-style: italic; /* Курсив */
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; /* Наследует цвет от родительского элемента */
+}

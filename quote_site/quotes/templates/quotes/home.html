@@ -1,13 +1,26 @@
-
 {% extends "quotes/base.html" %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+<div class="container mt-3">
+    <h2>Quotes of great people</h2>
+</div>
+
     <div class="container mt-3">
         {% for quote in quotes %}
-            <h1>"{{ quote.quote }}"</h1>
-            <p>Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></p>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title quote-text">"{{ quote.quote }}"</h5>
+                    <h6 class="author_stile">Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></h6>
+                    <p class="card-text">Tags: 
+                        {% for tag in quote.tags.all %}
+                            <a href="{% url 'quotes:tag_detail' tag.pk %}">{{ tag.name }}</a>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -11,6 +11,8 @@ urlpatterns = [
     path("add_tag", views.add_tag, name="add_tag"), 
     path("add_quote", views.add_quote, name="add_quote"),
     path('author/<int:pk>/', views.author_detail, name='author_detail'),
+    path('tag/<int:tag_id>/', views.tag_detail, name='tag_detail'),
+    
 ]
 
 

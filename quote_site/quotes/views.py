@@ -35,6 +35,10 @@ def tag(request, tag_name):
         },
     )
 
+def tag_detail(request, tag_id):
+    tag = get_object_or_404(Tag, pk=tag_id)
+    quotes = tag.quote_set.all()
+    return render(request, 'quotes/tag_detail.html', {'tag': tag, 'quotes': quotes})
 
 @login_required
 def add_quote(request):
