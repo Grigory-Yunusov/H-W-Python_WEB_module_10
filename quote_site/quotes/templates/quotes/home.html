@@ -1,58 +1,12 @@
-{% extends 'quotes/base.html' %} {% load extract %} {% block content %}
-<div class="row">
-  <div class="col-md-8">
-    {% for quote in quotes %}
-    <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
-      <span class="text" itemprop="text">{{ quote.quote }}</span>
-      <span
-        >by
-        <small class="author" itemprop="author"
-          >{{quote.author.fullname}}</small
-        >
-        <a href="/author/{{ quote.author.fullname }}">(about)</a>
-      </span>
-      <div class="tags">
-        Tags: {% for tag in quote.tags.all %}
-        <a class="tag" href="/tag/{{tag.name}}">{{tag.name}}</a>
+{% extends "quotes/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        {% for quote in quotes %}
+            <h1>{{ quote.text }}</h1>
+            <p>By: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></p>
         {% endfor %}
-      </div>
     </div>
-    {% endfor %}
-    <nav>
-      <ul class="pager pb-3">
-        <li class="previous">
-          <a
-            class="{% if not quotes.has_previous %} disabled {% endif %}"
-            href="{% if quotes.has_previous %} {% url 'quotes:root_paginate' quotes.previous_page_number %} {% else %} # {% endif %}"
-          >
-            <span aria-hidden="true">←</span> Previous</a
-          >
-        </li>
-
-        <li class="next">
-          <a
-            class="{% if not quotes.has_next %} disabled {% endif %}"
-            href="{% if quotes.has_next %} {% url 'quotes:root_paginate' quotes.next_page_number %} {% else %} # {% endif %}"
-            >Next <span aria-hidden="true">→</span></a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="col-md-4 tags-box">
-    {% load custom_filters %}
-    <h2>Top Ten tags</h2>
-    {% for tag in top_tags %}
-    <span class="tag-item">
-      <a
-        class="tag"
-        style="font-size: {{ tag.tag_count|times:2 }}px"
-        href="/tag/{{ tag }}"
-        >{{ tag }}</a
-      >
-    </span>
-    {% endfor %}
-  </div>
-</div>
 {% endblock %}

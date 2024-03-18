@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RegisterForm, LoginForm
 
 
 def signupuser(request):
     if request.user.is_authenticated:
-        return redirect(to='quotes:home')
+        return redirect(to='quotes:add_author')
 
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -21,7 +22,7 @@ def signupuser(request):
 
 def loginuser(request):
     if request.user.is_authenticated:
-       return redirect(to='noteapp:main')
+       return redirect(to='quotes:add_author')
 
     if request.method == 'POST':
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
@@ -33,3 +34,8 @@ def loginuser(request):
         return redirect(to='quotes:home')
 
     return render(request, 'users/login.html', context={"form": LoginForm()})
+
+@login_required
+def logoutuser(request):
+    logout(request)
+    return redirect(to='noteapp:main')
