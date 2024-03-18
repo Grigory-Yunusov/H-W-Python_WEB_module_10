@@ -8,7 +8,7 @@
         <h2>Quotes with this tag:</h2>
         {% for quote in quotes %}
             <h3>"{{ quote.quote }}"</h3>
-            <p>Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></p>
+            <p>Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.fullname }}</a></p>
         {% endfor %}
     </div>
 {% endblock %}

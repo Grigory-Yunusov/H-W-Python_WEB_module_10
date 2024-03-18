@@ -6,14 +6,14 @@
     <form method="POST" action="{% url 'quotes:add_author' %}">
         {% csrf_token %}
         <div style="padding: 10px">
-            <label>Enter the author name:</label>
-                {{form.name}}        
-            <span>{{ form.errors.name }}</span>
+            <label>Enter the author fullname:</label>
+                {{form.fullname}}        
+            <span>{{ form.errors.fullname }}</span>
         </div>
         <div style="padding: 10px">
-            <label>Enter the author birth date:</label>
-                {{form.birth_date}}
-            <span>{{ form.errors.birth_date }}</span>
+            <label>Enter the author born date:</label>
+                {{form.born_date}}
+            <span>{{ form.errors.born_date }}</span>
         </div>
         <div style="padding: 10px">
             <label>Enter the author born location:</label>

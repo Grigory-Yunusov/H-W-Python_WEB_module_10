@@ -13,7 +13,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title quote-text">"{{ quote.quote }}"</h5>
-                    <h6 class="author_stile">Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.name }}</a></h6>
+                    <h6 class="author_stile">Author: <a href="{% url 'quotes:author_detail' quote.author.pk %}">{{ quote.author.fullname }}</a></h6>
                     <p class="card-text">Tags: 
                         {% for tag in quote.tags.all %}
                             <a href="{% url 'quotes:tag_detail' tag.pk %}">{{ tag.name }}</a>

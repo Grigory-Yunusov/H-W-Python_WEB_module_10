@@ -3,14 +3,14 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 class Author(models.Model):
-    name = models.CharField(max_length=200)
-    birth_date = models.DateField()
+    fullname = models.CharField(max_length=200)
+    born_date = models.DateField()
     born_location = models.CharField(max_length=1502, default='Default Location')
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.name
+        return self.fullname
     
 
 class Tag(models.Model):
