@@ -14,7 +14,7 @@ class Author(models.Model):
     
 
 class Tag(models.Model):
-    name = models.CharField(max_length=30, null=False, unique=True)
+    name = models.CharField(max_length=120, null=False, unique=True)
 
     def __str__(self):
         return self.name
