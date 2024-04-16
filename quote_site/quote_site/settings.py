@@ -27,6 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.meta.ua'
+EMAIL_PORT = 465
+EMAIL_STARTTLS = False
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'Project_FastAPI@meta.ua'
+EMAIL_HOST_PASSWORD = 'DreamWorks_1992//'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 # Application definition
 
